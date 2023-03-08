@@ -25,6 +25,15 @@ export const getLocalStorage = () => {
 export const getLocalStoragePax = () => {
   if (typeof window !== "undefined") {
     let paxData = localStorage.getItem("passengersData");
-    return paxData ? JSON.parse(paxData) : [];
+    return paxData ? JSON.parse(paxData) : {};
+
+    // let paxData = localStorage.getItem("passengersData");
+    // if (!localStorage.getItem("passengersData") || paxData.length === 0) {
+    //   try {
+    //     localStorage.setItem("passengersData", JSON.stringify({}));
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // }
   }
 };

@@ -52,44 +52,46 @@ const PassengerDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("passengersData", JSON.stringify(formData));
-
+    if (formData) {
+      localStorage.setItem("passengersData", JSON.stringify(formData));
+    }
     router.push("./details/payments");
   };
 
   return (
-    <div className='flex flex-col '>
-      <div className='flex justify-end'>
+    <div className="flex flex-col ">
+      <div className="flex justify-end">
         {" "}
         <button
-          type='button'
+          type="button"
           onClick={handleSubmit}
-          className='m-8 flex  justify-end '>
+          className="m-8 flex  justify-end "
+        >
           Next
         </button>
       </div>
-      <div className=''>
+      <div className="">
         {adults > 0 &&
           Array(adults).fill(
-            <FormDetails passenger='Adult' id='adult' add={handleAdultForm} />
+            <FormDetails passenger="Adult" id="adult" add={handleAdultForm} />
           )}
       </div>
-      <div className=''>
+      <div className="">
         {children > 0 &&
           Array(children).fill(
             <FormDetails
-              passenger='Children'
-              id='children'
+              passenger="Children"
+              id="children"
               add={handleChildrenForm}
             />
           )}
       </div>
-      <div className=''>
+      <div className="">
         {infants > 0 &&
           Array(infants).fill(
             <FormDetails
-              passenger='Infant'
-              id='infant'
+              passenger="Infant"
+              id="infant"
               add={handleInfantForm}
             />
           )}
