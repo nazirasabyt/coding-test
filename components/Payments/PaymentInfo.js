@@ -92,7 +92,7 @@ const PaymentInfo = ({ data }) => {
         <p className="ml-8">+9712321456</p>
         <p className="ml-8">nawras@innovationfactory.biz</p>
         <p className="ml-8 mb-8 flex">
-          <TiTick className="icon" /> You'll get flight updates by text
+          <TiTick className="icon" /> You&apos;ll get flight updates by text
         </p>
       </div>
       <div>

@@ -1,12 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState, useRef } from "react";
-import {
-  RiFacebookCircleFill,
-  RiTwitterFill,
-  RiYoutubeFill,
-  RiInstagramFill,
-} from "react-icons/ri";
+// import Image from "next/image";
+// import Link from "next/link";
+import React, { useState } from "react";
+// import {
+//   RiFacebookCircleFill,
+//   RiTwitterFill,
+//   RiYoutubeFill,
+//   RiInstagramFill,
+// } from "react-icons/ri";
 
 const Footer = () => {
   const [email, setEmail] = useState();
