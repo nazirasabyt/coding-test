@@ -162,7 +162,7 @@ const FlightForm = () => {
                   name="from"
                   id="from"
                   placeholder="Origin"
-                  className=" block bg-white w-full border sm:h-[56px] rounded-sm py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-brand-clr focus:ring-brand-clr focus:ring-1 sm:text-sm"
+                  className=" block bg-white w-full border sm:h-[40px] rounded-sm py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-brand-clr focus:ring-brand-clr focus:ring-1 sm:text-sm"
                   value={formData.from}
                   onChange={(e) => handleInput(e)}
                 />
@@ -202,7 +202,7 @@ const FlightForm = () => {
                   name="to"
                   id="to"
                   placeholder="Destination"
-                  className=" block bg-white  w-full border sm:h-[56px] rounded-sm py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-brand-clr focus:ring-brand-clr focus:ring-1 sm:text-sm"
+                  className=" block bg-white  w-full border sm:h-[40px] rounded-sm py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-brand-clr focus:ring-brand-clr focus:ring-1 sm:text-sm"
                   value={formData.to}
                   onChange={(e) => handleInput(e)}
                 />
@@ -242,7 +242,7 @@ const FlightForm = () => {
                   name="departure"
                   placeholder="mm/dd/yyyy"
                   value={departureDate}
-                  className=" block w-full bg-white  border sm:h-[56px] rounded-sm py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-brand-clr focus:ring-brand-clr focus:ring-1 sm:text-sm"
+                  className=" block w-full bg-white  border sm:h-[40px] rounded-sm py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-brand-clr focus:ring-brand-clr focus:ring-1 sm:text-sm"
                   onChange={() => {}}
                   onClick={() => setOpenDeparture((open) => !open)}
                 />
@@ -273,7 +273,7 @@ const FlightForm = () => {
                   value={returnDate}
                   placeholder="mm/dd/yyyy"
                   name="return"
-                  className=" w-full bg-white  border sm:h-[56px] rounded-sm py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-brand-clr focus:ring-brand-clr focus:ring-1 sm:text-sm"
+                  className=" w-full bg-white  border sm:h-[40px] rounded-sm py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-brand-clr focus:ring-brand-clr focus:ring-1 sm:text-sm"
                   onChange={() => {}}
                   onClick={() => setOpenReturn((open) => !open)}
                 />
@@ -303,7 +303,7 @@ const FlightForm = () => {
                   required
                   placeholder="2 Adults, 1 Child, 0 Infants"
                   type="text"
-                  className=" block  bg-white w-full border sm:h-[56px] rounded-sm py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-brand-clr focus:ring-brand-clr focus:ring-1 sm:text-sm"
+                  className=" block  bg-white w-full border sm:h-[40px] rounded-sm py-2 pl-6 pr-3 shadow-sm focus:outline-none focus:border-brand-clr focus:ring-brand-clr focus:ring-1 sm:text-sm"
                   onChange={() => {}}
                   onClick={() => setModal((modal) => !modal)}
                   value={formData.pax.map((item) => {
@@ -324,6 +324,7 @@ const FlightForm = () => {
             <button
               className=" bg-brand-clr hover:bg-[#70d4b2] focus:bg-[#70d4b2] flex text-black 
           text-base rounded-md py-[8px] px-4 justify-center items-center gap-2 w-full sm:w-[230px] md:w-60 "
+              type="submit"
             >
               Search Flights
             </button>

@@ -1,52 +1,41 @@
 import React, { useState } from "react";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { TiTick } from "react-icons/ti";
-import { useWeb3React } from "@web3-react/core";
-import { injected } from "../../wallet";
+import { ethers } from "ethers";
 import { getLocalStorage } from "../../utils/helpers";
 
 const PaymentInfo = ({ data }) => {
   const flight = getLocalStorage();
 
-  const [minting, setMinting] = useState(false);
-  const { active, account, library, activate, deactivate } = useWeb3React();
-
-  async function connect() {
+  const handlePay = async () => {
     try {
-      await activate(injected);
-    } catch (ex) {
-      console.log(ex);
+      if (!window.ethereum) alert("No crypto wallet found. Please install it.");
+
+      await window.ethereum.send("eth_requestAccounts");
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      ethers.utils.getAddress(`${process.env.wallet_key}`);
+      const tx = await signer.sendTransaction({
+        to: "0x391EC0c94451e924C76a2B1ffc08268823f094e5",
+        value: 1000,
+      });
+
+      alert("proccess is done");
+    } catch (err) {
+      alert("proccess is failed");
     }
-  }
-  async function disconnect() {
-    try {
-      deactivate();
-    } catch (ex) {
-      console.log(ex);
-    }
-  }
+  };
 
-  async function mint() {
-    setMinting(true);
-    const myAccount = "0x391EC0c94451e924C76a2B1ffc08268823f094e5"; //Account to receive payment
-    const price = "0.01";
+  // async function mint() {
+  //   setMinting(true);
+  //   const myAccount = "0x391EC0c94451e924C76a2B1ffc08268823f094e5"; //Account to receive payment
+  //   const price = "0.01";
 
-    let obj = {
-      to: myAccount,
-      from: account,
-      value: 2000,
-    };
-
-    await library.eth.sendTransaction(obj, async (e, tx) => {
-      if (e) {
-        alert(`Something went wrong! Try switching accounts - ${e}`);
-        console.log("ERROR->", e);
-        setMinting(false);
-      } else {
-        setMinting(false);
-      }
-    });
-  }
+  //   let obj = {
+  //     to: myAccount,
+  //     from: account,
+  //     value: 2000,
+  //   };
 
   return (
     <div>
@@ -61,20 +50,13 @@ const PaymentInfo = ({ data }) => {
             {flight && flight.to}
           </h1>
 
-          {active ? (
-            <button
-              type="button"
-              disabled={minting}
-              onClick={mint}
-              className="main-mint-btn"
-            >
-              {minting ? "Waiting confirmation." : "Pay Now"}
-            </button>
-          ) : (
-            <button type="button" onClick={connect} className="main-mint-btn">
-              Check and pay
-            </button>
-          )}
+          <button
+            type="button"
+            onClick={() => handlePay()}
+            className="main-mint-btn"
+          >
+            Check and pay
+          </button>
 
           <div className="flex flex-col justify-center rounded-2xl border-solid border border-gray-300 mt-6">
             <h1 className="mt-6 ml-8">{`Flight to ${flight && flight.to}`}</h1>
