@@ -1,5 +1,5 @@
-### Hi there 👋, Hello
-#### My name is Nazira
+### Hi there 👋, 
+
 This is a coding test for a website for flight booking, 
 Flight flow consists of three-levels
 
