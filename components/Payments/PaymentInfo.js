@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { TiTick } from "react-icons/ti";
 import { ethers } from "ethers";
-import { getLocalStorage } from "../../utils/helpers";
+import { getLocalStorage, v } from "../../utils/helpers";
 
-const PaymentInfo = ({ data }) => {
+const PaymentInfo = () => {
   const flight = getLocalStorage();
+  const data = getLocalStoragePax();
 
   const handlePay = async () => {
     try {
@@ -25,17 +26,6 @@ const PaymentInfo = ({ data }) => {
       alert("proccess is failed");
     }
   };
-
-  // async function mint() {
-  //   setMinting(true);
-  //   const myAccount = "0x391EC0c94451e924C76a2B1ffc08268823f094e5"; //Account to receive payment
-  //   const price = "0.01";
-
-  //   let obj = {
-  //     to: myAccount,
-  //     from: account,
-  //     value: 2000,
-  //   };
 
   return (
     <div>
