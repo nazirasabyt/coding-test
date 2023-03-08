@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Skills: NEXT JS / REACT / JS / HTML / CSS 
 
-- 🔭 I’m currently working on this page. 
+- 🔭 I’m currently working on error handling and styling 
 
 
 
